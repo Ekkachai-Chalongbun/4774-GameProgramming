@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CollectibleController : MonoBehaviour
 {
+    [SerializeField] private SoCollectible collectibleObject;
     public CollectibleColor color;
 
     void Start()
