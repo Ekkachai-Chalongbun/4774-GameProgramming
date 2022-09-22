@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81a655919b2c0f84cb28d353793974ba, type: 3}
-  m_Name: RefillEnergy
+  m_Name: RefillHealth
   m_EditorClassIdentifier: 
-  collectibleType: 2
-  sprite: {fileID: 0}
-  outlineSprite: {fileID: 0}
-  respawnable: 0
+  collectibleType: 3
+  sprite: {fileID: 1632589182, guid: e4cf1e6cc738caf408ebd98517ada700, type: 3}
+  outlineSprite: {fileID: 1769000196, guid: e4cf1e6cc738caf408ebd98517ada700, type: 3}
+  respawnable: 1

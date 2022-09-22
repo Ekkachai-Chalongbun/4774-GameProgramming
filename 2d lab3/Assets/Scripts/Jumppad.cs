@@ -5,7 +5,7 @@ using UnityEngine;
 public class Jumppad : MonoBehaviour
 {
     [SerializeField] private float jumpPadForce = 10f;
-    [SerializeField] private float additionalSleepJumpTime = 10f;
+    [SerializeField] private float additionalSleepJumpTime = 13f;
 
     [SerializeField] private Animator animator;
 

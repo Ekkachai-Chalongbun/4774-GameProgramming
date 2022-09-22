@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: RefillDash
   m_EditorClassIdentifier: 
   collectibleType: 1
-  sprite: {fileID: 0}
-  outlineSprite: {fileID: 0}
-  respawnable: 0
+  sprite: {fileID: 1710933616, guid: e4cf1e6cc738caf408ebd98517ada700, type: 3}
+  outlineSprite: {fileID: 678858279, guid: e4cf1e6cc738caf408ebd98517ada700, type: 3}
+  respawnable: 1

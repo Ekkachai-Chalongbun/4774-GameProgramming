@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DoubleJump
   m_EditorClassIdentifier: 
   collectibleType: 0
-  sprite: {fileID: 0}
-  outlineSprite: {fileID: 0}
-  respawnable: 0
+  sprite: {fileID: -958174384, guid: d0c9829c72695b240af7d866b20d6a05, type: 3}
+  outlineSprite: {fileID: -1825844431, guid: d0c9829c72695b240af7d866b20d6a05, type: 3}
+  respawnable: 1

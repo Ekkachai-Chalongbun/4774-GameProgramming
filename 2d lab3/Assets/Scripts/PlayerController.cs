@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float groundCheckDistance = 0.5f;
+    [SerializeField] private float groundCheckDistance = 0.05f;
     [SerializeField] private AnimationController animationController;
     [SerializeField] private float coyoteCount;
     [SerializeField] private float coyoteTime = 0.15f;
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         if (value.isPressed)
         {
-            rb.AddForce((transform.up * jumpForce), ForceMode2D.Impulse);
+            TryJumpFunction();
         }
     }
 
