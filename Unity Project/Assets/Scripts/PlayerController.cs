@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(10);
+    }
+
     private void Update()
     {
         rb.velocity = new Vector2(_moveInput * moveSpeed, rb.velocity.y);
@@ -57,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out CollectibleController collectibleController))
         {
+            audioController.PlayCollectedSound();
             CollectibleColor playerColor = collectibleController.color;
 
             switch (playerColor)
@@ -82,6 +88,14 @@ public class PlayerController : MonoBehaviour
         if (boxCollider.IsTouchingLayers(LayerMask.GetMask("Hazard")))
         {
             TakeDamage();
+            audioController.PlayDeathSound();
+        }
+
+        if (collision.CompareTag("Last"))
+        {
+            audioController.PlayWinningSound();
+            StartCoroutine(waiter());
+            gameManager.LoadMenu();
         }
     }
 
@@ -115,6 +129,7 @@ public class PlayerController : MonoBehaviour
     private void TakeDamage()
     {
         gameManager.ProcessPlayerDeath();
+        audioController.PlayDeathSound();
     }
 
     public void Jump(float force)

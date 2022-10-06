@@ -3330,6 +3330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 994518912}
   - component: {fileID: 994518911}
+  - component: {fileID: 994518913}
   m_Layer: 0
   m_Name: BGM
   m_TagString: Untagged
@@ -3448,6 +3449,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &994518913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994518910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30829b9aee0174448a977d111261bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1008578680
 GameObject:
   m_ObjectHideFlags: 0
@@ -7110,6 +7123,12 @@ MonoBehaviour:
   audioSource: {fileID: 1215792107}
   walkAudioClips: {fileID: 11400000, guid: 6f14cd8ab3966e645afb4ac0587a9058, type: 2}
   jumpAudioClips: {fileID: 11400000, guid: b8116d73f0065bc44a05fedce6447863, type: 2}
+  jumppadAudioClips: {fileID: 11400000, guid: b0bd6b0055285594cbbdb763261b5e8c, type: 2}
+  collectibleCollectedAudioClips: {fileID: 11400000, guid: 3d3b604dee36a8f41ab29a122ad442f6, type: 2}
+  collectibleRespawnAudioClips: {fileID: 11400000, guid: da596361c6ee7824684645d82ccf8592, type: 2}
+  deathAudioClips: {fileID: 11400000, guid: 54cb2417c03bdfa4bbf4aa64ed086df5, type: 2}
+  fallAudioClips: {fileID: 11400000, guid: 1350322aa6b23c940a32c47558b60a62, type: 2}
+  winningAudioClips: {fileID: 11400000, guid: 6f72724bc4962b744be4b60eb3e02316, type: 2}
 --- !u!1 &1254510966
 GameObject:
   m_ObjectHideFlags: 0
@@ -7204,6 +7223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1272401136}
+  audioController: {fileID: 1215792108}
   respawnDelay: 4
 --- !u!61 &1272401135
 BoxCollider2D:
@@ -7948,6 +7968,7 @@ MonoBehaviour:
   additionalSleepJumpTime: 10
   animator: {fileID: 1760262270}
   player: {fileID: 1215792105}
+  playerAudio: {fileID: 1215792108}
 --- !u!1001 &1911633158
 PrefabInstance:
   m_ObjectHideFlags: 0

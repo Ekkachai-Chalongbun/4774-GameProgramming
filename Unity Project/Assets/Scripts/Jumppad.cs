@@ -16,6 +16,7 @@ public class Jumppad : MonoBehaviour
     public float GetAdditionalSleepJumpTime() => additionalSleepJumpTime;
 
     [SerializeField] private PlayerController player;
+    [SerializeField] private PlayerAudioController playerAudio;
 
     public void TriggerJumpPad()
     {
@@ -27,6 +28,7 @@ public class Jumppad : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            playerAudio.PlayJumpPadSound();
             TriggerJumpPad();
         }
     }
