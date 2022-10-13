@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float coyoteCount;
     [SerializeField] private float coyoteTime = 0.15f;
     [SerializeField] private PlayerAudioController audioController;
+    [SerializeField] private ParticleSystem deathEffect;
+    [SerializeField] private ParticleSystem winningEffect;
+    [SerializeField] private ParticleSystem runningEffect;
     private bool isGrounded;
     private bool groundState;
     private float _moveInput;
@@ -29,11 +32,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         gameManager = FindObjectOfType<GameManager>();
-    }
-
-    IEnumerator waiter()
-    {
-        yield return new WaitForSeconds(10);
     }
 
     private void Update()
@@ -48,6 +46,8 @@ public class PlayerController : MonoBehaviour
     private void OnMove(InputValue value)
     {
         _moveInput = value.Get<float>();
+        runningEffect.Play();
+
     }
 
     private void OnJump(InputValue value)
@@ -93,10 +93,16 @@ public class PlayerController : MonoBehaviour
 
         if (collision.CompareTag("Last"))
         {
+            winningEffect.Play();
             audioController.PlayWinningSound();
-            StartCoroutine(waiter());
-            gameManager.LoadMenu();
+            StartCoroutine(WaitOnWin());
         }
+    }
+
+    IEnumerator WaitOnWin()
+    {
+        yield return new WaitForSeconds(1);
+        gameManager.LoadMenu();
     }
 
     private void SpriteDirection()
@@ -128,8 +134,15 @@ public class PlayerController : MonoBehaviour
 
     private void TakeDamage()
     {
-        gameManager.ProcessPlayerDeath();
+        StartCoroutine(WaitOnDeath());
         audioController.PlayDeathSound();
+        deathEffect.Play();
+    }
+
+    public IEnumerator WaitOnDeath()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameManager.ProcessPlayerDeath();
     }
 
     public void Jump(float force)
